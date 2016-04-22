@@ -3,7 +3,7 @@
     <head>
       
         <meta charset="utf-8">
-        <title>Archives - Starry的博客集</title>
+        <title>Java的23中设计模式 - Starry的博客集</title>
         <!-- meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="generator" content="Jekyll" />
@@ -96,30 +96,151 @@
         <div class="contain fn-clear">
             <div class="container fn-clear">
                 <div class="main">
-                    <div class="article">
-    <h3 class="title">Archives</h3>
-    
-    <ul class="article-year" data-year="2016">
-        
-            
-            
-        <li class="fn-clear"><span>Apr 21</span><a href="/blog/%E6%8A%80%E6%9C%AF/2016/04/21/java%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html">Java的23中设计模式</a></li>
-        
-            
-            
-        <li class="fn-clear"><span>Apr 20</span><a href="/blog/%E7%94%9F%E6%B4%BB/2016/04/20/%E5%BC%80%E5%A7%8B.html">博客开启</a></li>
-        
-            
-            
-                
-    </ul>
-    <ul class="article-year" data-year="2014">
-            
-        <li class="fn-clear"><span>Sep 20</span><a href="/blog/skill/2014/09/20/java-concurrency.html">Java 中的并发</a></li>
-        
-    </ul>
+                    
+    <div class="article article-post">
+    <h2 class="title">Java的23中设计模式</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">21 Apr 2016</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/blog/navigations/categories.html#技术-ref" >技术</a></span>
+    </div>
+    <!-->从这一块开始，我们详细介绍Java中23种设计模式的概念，应用场景等情况.<!-->
+
+<p>并结合他们的特点及设计模式的原则进行分析。</p>
+
+<hr />
+
+<h2 id="httpwwwbaiducom">多<a href="http://www.baidu.com">百度</a>,多学习.</h2>
+
+<h2 id="qiandao">多<a href="http://zhidao.baidu.com/">签到</a>,赚财富</h2>
+
+<p><strong>转载自：<a href="http://blog.csdn.net/zhangerqing">http://blog.csdn.net/zhangerqing</a></strong></p>
+
+<p><em>1、工厂方法模式(Factory Method)</em><br />
+<strong>工厂方法模式分为三种：</strong><br />
+11、普通工厂模式，就是建立一个工厂类，对实现了同一接口的一些类进行实例的创建。首先看下关系图:<br />
+<img src="/blog/pic/factory.png" alt="工厂" /></p>
+
+<p>举例如下：（我们举一个发送邮件和短信的例子）
+首先，创建二者的共同接口：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[java] view plaincopy
+public interface Sender {  
+public void Send();  
+}  
+</code></pre>
 </div>
 
+<p>其次，创建实现类：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[java] view plaincopy
+public class MailSender implements Sender {  
+@Override  
+public void Send() {  
+    System.out.println("this is mailsender!");  
+}  
+}  
+[java] view plaincopy
+public class SmsSender implements Sender {  
+  
+@Override  
+public void Send() {  
+    System.out.println("this is sms sender!");  
+}  
+}  
+</code></pre>
+</div>
+
+<p>最后，建工厂类：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[java] view plaincopy
+public class SendFactory {  
+  
+public Sender produce(String type) {  
+    if ("mail".equals(type)) {  
+        return new MailSender();  
+    } else if ("sms".equals(type)) {  
+        return new SmsSender();  
+    } else {  
+        System.out.println("请输入正确的类型!");  
+        return null;  
+    }  
+}   }  
+</code></pre>
+</div>
+
+<p>我们来测试下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class FactoryTest {  
+  
+public static void main(String[] args) {  
+    SendFactory factory = new SendFactory();  
+    Sender sender = factory.produce("sms");  
+    sender.Send();  
+}  
+}
+</code></pre>
+</div>
+
+<p>输出：this is sms sender!</p>
+
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="/blog//%E7%94%9F%E6%B4%BB/2016/04/20/%E5%BC%80%E5%A7%8B.html" rel="bookmark">&laquo;&nbsp;博客开启</a>
+        
+        
+    </nav>
+    <div class="comment">
+        
+            
+            <div class="ds-thread"></div>
+            
+        
+    </div>
+</div>
+
+
+                    
+                        
+	
+	
+	
+ <script type="text/javascript">
+var duoshuoQuery = {short_name:"virtualstarry"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	
+	<div class="ds-share" data-thread-key="/%E6%8A%80%E6%9C%AF/2016/04/21/java的设计模式" data-title="Java的23中设计模式" data-images="" data-content="Java的23中设计模式" data-url="/%E6%8A%80%E6%9C%AF/2016/04/21/java%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      	
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+
+   
+  
+
+	
+
+    
 
                     
                 </div>
